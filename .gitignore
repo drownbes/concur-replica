@@ -1,2 +1,6 @@
-.stack-work
-js/dist
+.stack-work/
+janus.cabal
+*~
+result-*
+result
+dist-newstyle/*
