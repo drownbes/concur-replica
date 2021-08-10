@@ -7,6 +7,7 @@ in project.shellFor {
   withHoogle = true;
   buildInputs = [
     pkgs.haskellPackages.hpack
+    pkgs.haskellPackages.fswatcher
     pkgs.zlib
   ];
   tools = {

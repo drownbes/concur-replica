@@ -10,7 +10,7 @@ import           Concur.Replica.DOM           (button, input, li, text, ul)
 import           Concur.Replica.DOM.Events    (BaseEvent (target), onClick, onInput, targetValue)
 import           Concur.Replica.DOM.Props     (value)
 import           Data.Text                    (Text)
-import           Control.Concurrent.STM       (TVar, atomically, modifyTVar', newTVarIO, readTVar)
+import           Control.Concurrent.STM       (TVar, atomically, modifyTVar', newTVarIO, readTVarIO)
 import           Control.Concurrent.STM.TChan (TChan, dupTChan, newTChanIO, readTChan, writeTChan)
 
 -- A simple chat app demonstrating communication between clients using STM.
@@ -32,7 +32,7 @@ data ChatAction
 
 chatWidget :: TVar [Message] -> TChan () -> Widget HTML Message
 chatWidget msgsTVar messageAlert = do
-    messageHistory <- liftIO . atomically . readTVar $ msgsTVar
+    messageHistory <- liftIO . readTVarIO $ msgsTVar
     -- Render messageList and messageEditor and wait for user to send
     let newMessageToPost = NewMessageToPost <$> (messageEditor "" <|> messagesList messageHistory)
     -- Wait for a message from other user
@@ -51,7 +51,7 @@ chatWidget msgsTVar messageAlert = do
 
 messageEditor :: Message -> Widget HTML Message
 messageEditor typing = do
-    let textInput = Typing . targetValue . target <$> input [value $ typing, onInput]
+    let textInput = Typing . targetValue . target <$> input [value typing, onInput]
     let submitButton = Send typing <$ button [onClick] [text "Send"]
     -- Wait for whatever editorAction to happen first
     editorAction <- textInput <|> submitButton
