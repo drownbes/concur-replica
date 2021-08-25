@@ -3,7 +3,7 @@ packages: *.cabal
 source-repository-package
   type: git
   location: https://github.com/drownbes/replica.git
-  tag: 40d946bec376da4fadcd98c049e9e2e88eb7c2e2
+  tag: 137bc651cbb141c1c2cb67a4ec8b34578c7d579d
 
 source-repository-package
   type: git
