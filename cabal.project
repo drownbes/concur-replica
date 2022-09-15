@@ -2,11 +2,13 @@ packages: *.cabal
 
 source-repository-package
   type: git
-  location: https://github.com/drownbes/replica.git
-  tag: 137bc651cbb141c1c2cb67a4ec8b34578c7d579d
+  location: https://github.com/drownbes/concur.git
+  tag: 3c9c20f1883c6cc17012d5ca6d398281760323e1
+  --sha256: sha256-LiwmeGcryfLeHNDyVbsOgU4no6TsK4qU9f6FcJFFt70=
+  subdir: concur-core
 
 source-repository-package
   type: git
-  location: https://github.com/pkamenarsky/concur.git
-  tag: dc5347b35c79654d58fa95716f425ee7248504fb
-  subdir: concur-core
+  location: https://github.com/drownbes/replica.git
+  tag: 137bc651cbb141c1c2cb67a4ec8b34578c7d579d
+  --sha256: sha256-vPmvrAHp+2C/Ar/D1obdbMpdWfteUPAJ3WS5PIo93uc=

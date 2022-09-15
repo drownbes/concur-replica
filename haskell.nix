@@ -11,7 +11,7 @@ in {
       name = "concur-replica";
       src = ./.;
     };
-    compiler-nix-name = "ghc865";
+    compiler-nix-name = "ghc902";
   };
   pkgs= pkgs;
 }
